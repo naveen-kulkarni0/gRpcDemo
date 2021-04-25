@@ -19,12 +19,12 @@ public class UserService extends userImplBase{
 		
 		//Creating the response builder to set the response
 		APIResponse.Builder apiResponse = APIResponse.newBuilder();
-		if(null != username && null != password) {
-			apiResponse.setResponseCode(200);
+		if(!username.isEmpty() && !password.isEmpty()) {
+			apiResponse.setResponseCode(0);
 			apiResponse.setResponseMessage("Login Successful");
 		}
 		else {
-			apiResponse.setResponseCode(401);
+			apiResponse.setResponseCode(16);
 			apiResponse.setResponseMessage("Login Failed");
 		}
 		//ResponseObserver is used to send back the response. The onNext will set the response and onCompleted will close the connection
