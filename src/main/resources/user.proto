@@ -1,0 +1,24 @@
+syntax  = "proto3";
+
+option java_package = "com.naveen.grpcDemo";
+
+// creating API for service
+service user{
+	rpc login(LoginRequest) returns (APIResponse);
+	rpc logout(EmptyRequest) returns (APIResponse);
+}
+
+// a service must always accept message, if it is suppsed to be blank create Empty message and must always respond with message
+
+message LoginRequest {
+	string username = 1;
+	string password = 2;
+}
+
+message APIResponse {
+	string responseMessage = 1;
+	int32 responseCode = 2;
+}
+
+message EmptyRequest {
+}
